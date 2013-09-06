@@ -1,0 +1,184 @@
+Historia 1
+Como visitante del sitio
+Quiero autenticarme
+Para publicar un artículo de búsqueda
+ 
+Escenario 1
+Dado que el usuario y contraseña son válidos
+Cuando el visitante hace click en “Ingresar”
+Entonces el sistema lo autentica como usuario
+ 
+Escenario 2
+Dado que el par usuario y contraseña son incorrectos
+Cuando el visitante hace click en “Ingresar”
+Entonces el sistema informa el mensaje de error
+Y ofrece recuperar la contraseña
+ 
+ 
+Historia 2
+Como usuario identificado del sitio
+Quiero modificar mis datos de perfil
+Para mantener mis datos de contacto actualizados
+ 
+Escenario 1
+Dado que los datos de perfil han sido cargados correctamente
+Cuando el usuario identificado hace click en “Aceptar”
+Entonces el sistema actualiza sus datos de contacto
+
+Escenario 2
+Dado que los datos de perfil han sido cargados incorrectamente
+Cuando el usuario identificado hace click en “Cancelar”
+Entonces el sistema cancela la actualización de sus datos de contacto
+ 
+ 
+Historia 3
+Como visitante
+Quiero registrarme en el sitio
+Para publicar un artículo de búsqueda
+ 
+Escenario 1
+Dado que la dirección de mail ingresada no está en uso
+Cuando el visitante hace click en “Registrarme”
+Entonces el sistema crea la cuenta de usuario
+Y le envía un mail para que la pueda activar
+ 
+Escenario 2
+Dado que la dirección de mail ingresada está en uso
+Cuando el visitante hace click en “Registrarme”
+Entonces el sistema informa del error
+E invita al usuario a recuperar su contraseña
+ 
+ 
+Historia 4
+Como usuario registrado sin activar
+Quiero activar mi cuenta de usuario
+Para poder autenticarme en el sitio
+ 
+Escenario 1
+Dado que el código de activación está vigente
+Cuando el usuario lo ingresa en la interfaz de activación
+Entonces el sistema activa la cuenta
+Y lo invita a autenticarse
+ 
+Escenario 2
+Dado que el código de activación no se reconoce por el sistema
+Cuando el usuario lo ingresa en la interfaz de activación
+Entonces el sistema informa el error
+E invita al usuario a recuperar su contraseña o recibir un nuevo código de activación
+ 
+ 
+Historia 5
+Como visitante
+Quiero buscar por categoría, zona y descripción, artículos o animales que se han encontrado
+Para visitar la publicación y verificar si es lo que he perdido
+ 
+Escenario 1
+Dado que existen publicaciones para los criterios elegidos
+Cuando el visitante clickea en “Buscar”
+Entonces el sistema muestra los resultados
+ 
+Escenario 2
+Dado que no existen publicaciones activas en los criterios elegidos
+Cuando el visitante clickea en “Buscar”
+Entonces el sistema propone crear una publicación de búsqueda
+ 
+ 
+Historia 6
+Como usuario registrado
+Quiero contactarme con otro usuario que encontró lo que busco, o que busca lo que encontré
+Para pactar la devolución del objeto
+ 
+Escenario 1
+Dado que aún no se ha verificado que quien busca sea el dueño real del objeto
+Cuando un usuario envía la petición de contacto
+Entonces el sistema informa al usuario que encontró el objeto la posibilidad de realizar una verificación de dueño real
+ 
+Escenario 2
+Dado que ambos usuarios han aceptado la petición de intercambio de datos
+Cuando ambos aceptan la petición
+Entonces el sistema informa a ambas partes de los datos de contacto de su contraparte
+ 
+Escenario 3
+Dado que se ha verificado que quien busca es el dueño real del objeto
+Y que el dueño del objeto no acepta la petición de intercambio de datos
+Cuando el dueño del objeto declina la petición
+Entonces el sistema no muestra los datos de la contraparte
+Y le envía un mail al dueño del objeto para que reconsidere aceptar el intercambio
+ 
+Escenario 4
+Dado que se ha verificado que quien busca es el dueño real del objeto
+Y que quien encontró el objeto declina la petición de intercambio de datos
+Cuando declina la petición
+Entonces el sistema envía un mail a quien encontró el objeto para que reconsidere la situación
+Y se abre un registro de disputa
+ 
+ 
+Historia 7
+Como usuario registrado
+Quiero verificar si otro usuario es el dueño real de un objeto que yo encontré
+Para iniciar el intercambio de datos
+ 
+Escenario 1
+Dado que la categoría en la cual tengo mi publicación tiene cargadas preguntas de verificación modelo
+Cuando uno de los usuarios inicia el proceso de verificación
+Entonces el sistema me permite enviarle alguna de esas preguntas
+Y almacena el resultado para futuras disputas
+ 
+Escenario 2
+Dado que la categoría en la cual publique mi objeto no tiene preguntas precargadas
+Cuando uno de los usuarios inicia el proceso de verificación
+Entonces el sistema me permite escribir y enviarle mis propias preguntas
+Y almacena el resultado para futuras disputas
+ 
+Escenario 3
+Dado que prefiero iniciar una conversación privada con el posible dueño del objeto
+Cuando uno de los usuarios inicia el proceso de verificación
+Entonces el sistema permite iniciar una conversación privada
+Y almacena esa conversación para futuras disputas
+ 
+ 
+Historia 8
+Como usuario registrado
+Quiero publicar un objeto que estoy buscando
+Para que me sea devuelto
+ 
+Escenario 1
+Dado que hay publicados objetos encontrados similares a lo que estoy buscando
+Cuando selecciono los criterios de publicación
+Entonces el sistema me invita a revisar las publicaciones similares al objeto que busco
+ 
+Escenario 2
+Dado que no existen publicacones de objetos encontrados similares a lo que busco
+Cuando ingreso los datos solicitados por el sistema
+Entonces el sistema crea la publicación
+ 
+Escenario 3
+Dado que ya tengo una búsqueda activa
+Cuando intento publicar una nueva búsqueda
+El sistema informa que sólo se puede tener una búsqueda activa
+E invita al usuario a contactarse con la administración para evaluar la posibilidad de iniciar una nueva búsqueda
+ 
+ 
+Historia 9
+Como usuario registrado
+Quiero publicar un objeto que he encontrado
+Para devolverlo a su dueño real
+ 
+Escenario 1
+Dado que ya tengo 2 publicaciones activas en encontrados
+Cuando intento realizar una nueva publicación
+El sistema informa que sólo se pueden tener dos publicaciones de encontrados activas
+E invita al usuario a contactarse con la administración para evaluar la posibilidad de publicar una tercera publicación
+ 
+Escenario 2
+Dado que tengo menos de 2 publicaciones activas en encontrados
+Cuando ingreso los datos solicitados por el sistema
+Entonces el sistema crea la publicación
+ 
+ 
+Historia 10 (prioridad baja)
+ 
+Como usuario registrado
+Quiero iniciar una disputa contra otro usuario que no acepta mis intentos de contacto, no me reconozca como dueño real del objeto, no desee devolverme un objeto, o no quiera aceptar la devolución de un objeto/animal
+Para que la administración del sitio intervenga y ayude a aclarar la situación
+
